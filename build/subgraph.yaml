@@ -1,6 +1,6 @@
 specVersion: 0.0.5
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: Meka
@@ -19,7 +19,7 @@ dataSources:
         - Transfer
       abis:
         - name: Meka
-          file: ./abis/Meka.json
+          file: Meka/abis/Meka.json
       eventHandlers:
         - event: Approval(indexed address,indexed address,indexed uint256)
           handler: handleApproval
@@ -27,7 +27,7 @@ dataSources:
           handler: handleApprovalForAll
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
-      file: ./src/meka.ts
+      file: Meka/Meka.wasm
   - kind: ethereum
     name: Contract
     network: mumbai
@@ -46,7 +46,7 @@ dataSources:
         - ContractTransfer
       abis:
         - name: Contract
-          file: ./abis/Contract.json
+          file: Contract/abis/Contract.json
       eventHandlers:
         - event: AdminAccessSet(address,bool)
           handler: handleAdminAccessSet
@@ -58,4 +58,4 @@ dataSources:
           handler: handleOwnershipTransferred
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
-      file: ./src/contract.ts
+      file: Contract/Contract.wasm

@@ -3,6 +3,9 @@
     "Meka": {
       "address": "0x147923c03Ee14c65eaE13398926E35eA553cEA98",
       "startBlock": 32228054
+    },
+    "Contract": {
+      "address": "0xd1a4818eb093867fdd4db04bef67d0ee7954e4bc"
     }
   }
 }
