@@ -14,17 +14,11 @@ dataSources:
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - Approval
-        - ApprovalForAll
         - Transfer
       abis:
         - name: Meka
           file: Meka/abis/Meka.json
       eventHandlers:
-        - event: Approval(indexed address,indexed address,indexed uint256)
-          handler: handleApproval
-        - event: ApprovalForAll(indexed address,indexed address,bool)
-          handler: handleApprovalForAll
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
       file: Meka/Meka.wasm
@@ -39,23 +33,30 @@ dataSources:
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - AdminAccessSet
-        - ContractApproval
-        - ContractApprovalForAll
-        - OwnershipTransferred
         - ContractTransfer
       abis:
         - name: Contract
           file: Contract/abis/Contract.json
       eventHandlers:
-        - event: AdminAccessSet(address,bool)
-          handler: handleAdminAccessSet
-        - event: Approval(indexed address,indexed address,indexed uint256)
-          handler: handleApproval
-        - event: ApprovalForAll(indexed address,indexed address,bool)
-          handler: handleApprovalForAll
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
       file: Contract/Contract.wasm
+  - kind: ethereum
+    name: Chumbi
+    network: mumbai
+    source:
+      address: "0x86607b5a7aff30a02bc6442455a3213085b13e76"
+      abi: chumbi
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+      abis:
+        - name: chumbi
+          file: Chumbi/abis/chumbi.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: Chumbi/Chumbi.wasm
